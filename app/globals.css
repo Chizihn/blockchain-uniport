@@ -1,26 +1,151 @@
+/* app/globals.css */
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* -------------------------------------------------
+   1. Define the colour palette
+   ------------------------------------------------- */
+@theme {
+  /* Primary – 9 shades (50 → 900) */
+  --color-primary-50: #e0e7ff;
+  --color-primary-100: #c7d2fe;
+  --color-primary-200: #a5b4fc;
+  --color-primary-300: #818cf8;
+  --color-primary-400: #6366f1;
+  --color-primary-500: #4f46e5;
+  --color-primary-600: #4338ca;
+  --color-primary-700: #3730a3;
+  --color-primary-800: #312e81;
+  --color-primary-900: #1e1b4b; /* not in the image but handy */
+
+  /* Neutral – 9 shades (50 → 900) */
+  --color-neutral-50: #f9fafb;
+  --color-neutral-100: #f3f4f6;
+  --color-neutral-200: #e5e7eb;
+  --color-neutral-300: #d1d5db;
+  --color-neutral-400: #9ca3af;
+  --color-neutral-500: #6b7280;
+  --color-neutral-600: #4b5563;
+  --color-neutral-700: #374151;
+  --color-neutral-800: #1f2937;
+  --color-neutral-900: #111827;
+
+  /* White – single value */
+  --color-white: #ffffff;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* -------------------------------------------------
+   2. Optional: expose the colors as Tailwind utilities
+   ------------------------------------------------- */
+@utility bg-primary-50 {
+  background-color: var(--color-primary-50);
+}
+@utility bg-primary-100 {
+  background-color: var(--color-primary-100);
+}
+@utility bg-primary-200 {
+  background-color: var(--color-primary-200);
+}
+@utility bg-primary-300 {
+  background-color: var(--color-primary-300);
+}
+@utility bg-primary-400 {
+  background-color: var(--color-primary-400);
+}
+@utility bg-primary-500 {
+  background-color: var(--color-primary-500);
+}
+@utility bg-primary-600 {
+  background-color: var(--color-primary-600);
+}
+@utility bg-primary-700 {
+  background-color: var(--color-primary-700);
+}
+@utility bg-primary-800 {
+  background-color: var(--color-primary-800);
+}
+@utility bg-primary-900 {
+  background-color: var(--color-primary-900);
 }
 
+@utility bg-neutral-50 {
+  background-color: var(--color-neutral-50);
+}
+@utility bg-neutral-100 {
+  background-color: var(--color-neutral-100);
+}
+@utility bg-neutral-200 {
+  background-color: var(--color-neutral-200);
+}
+@utility bg-neutral-300 {
+  background-color: var(--color-neutral-300);
+}
+@utility bg-neutral-400 {
+  background-color: var(--color-neutral-400);
+}
+@utility bg-neutral-500 {
+  background-color: var(--color-neutral-500);
+}
+@utility bg-neutral-600 {
+  background-color: var(--color-neutral-600);
+}
+@utility bg-neutral-700 {
+  background-color: var(--color-neutral-700);
+}
+@utility bg-neutral-800 {
+  background-color: var(--color-neutral-800);
+}
+@utility bg-neutral-900 {
+  background-color: var(--color-neutral-900);
+}
+
+@utility bg-white {
+  background-color: var(--color-white);
+}
+
+/* You can also add text-, border-, etc. utilities the same way */
+@utility text-primary-500 {
+  color: var(--color-primary-500);
+}
+@utility border-primary-500 {
+  border-color: var(--color-primary-500);
+}
+/* …repeat for any other utilities you need */
+
+/* -------------------------------------------------
+   3. Global base styles (optional but nice)
+   ------------------------------------------------- */
+@layer base {
+  html {
+    @apply antialiased;
+  }
+
+  body {
+    @apply bg-white text-neutral-900;
+  }
+}
+
+/* -------------------------------------------------
+   4. Dark-mode toggle (optional)
+   ------------------------------------------------- */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --color-primary-500: #6366f1; /* keep the same or adjust */
+  }
+  body {
+    @apply bg-neutral-900 text-white;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-lato), -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-poppins), sans-serif;
 }
